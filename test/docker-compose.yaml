@@ -1,0 +1,32 @@
+version: '3.8'
+
+services:
+
+  mqtt:
+    image: eclipse-mosquitto:latest
+    restart: always 
+    volumes:
+      - ./mqtt:/mosquitto/config
+    ports:
+      - 1883:1883
+
+  # telegraph:
+    
+  grafana:
+    image: grafana/grafana-oss
+    restart: unless-stopped
+    ports:
+      - 3000:3000
+    environment:
+      - GF_INSTALL_PLUGINS=${GRAFANA_PLUGINS}
+      - GF_SECURITY_ADMIN_USER=${GRAFANA_ADMIN_USER}
+      - GF_SECURITY_ADMIN_PASSWORD=${GRAFANA_ADMIN_PASSWORD}
+    volumes:
+      - ./grafana/data:/var/lib/grafana
+    depends_on:
+      - prometheus
+
+  # tsdb:
+    
+
+    
