@@ -1,0 +1,32 @@
+root@4f732f8b046e:/# timescaledb-tune --quiet --yes --conf-path /usr/share/postgresql/postgresql.conf
+Using postgresql.conf at this path:
+/usr/share/postgresql/postgresql.conf
+
+Writing backup to:
+/tmp/timescaledb_tune.backup202310142001
+
+Recommendations based on 15.25 GB of available memory and 8 CPUs for PostgreSQL 15
+shared_preload_libraries = 'timescaledb'        # (change requires restart)
+shared_buffers = 3904MB
+effective_cache_size = 11714MB
+maintenance_work_mem = 1952MB
+work_mem = 4998kB
+timescaledb.max_background_workers = 16
+max_worker_processes = 27
+max_parallel_workers_per_gather = 4
+max_parallel_workers = 8
+wal_buffers = 16MB
+min_wal_size = 512MB
+max_wal_size = 1GB
+default_statistics_target = 500
+random_page_cost = 1.1
+checkpoint_completion_target = 0.9
+max_connections = 100
+max_locks_per_transaction = 128
+autovacuum_max_workers = 10
+autovacuum_naptime = 10
+effective_io_concurrency = 256
+timescaledb.last_tuned = '2023-10-14T20:01:53Z'
+timescaledb.last_tuned_version = '0.14.3'
+Saving changes to: /usr/share/postgresql/postgresql.conf
+root@4f732f8b046e:/# 

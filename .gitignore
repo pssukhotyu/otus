@@ -1,0 +1,4 @@
+project/mqtt/password_file
+project/.env
+project/tsdb/data
+demo_big.sql
