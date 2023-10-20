@@ -1,0 +1,21 @@
+@startuml
+
+!theme carbon-gray
+top to bottom direction
+skinparam linetype ortho
+title Схема базы данных.
+
+class sensor1_daily {
+   time_bucket: timestamp
+   avg_value: double precision
+   min_value: double precision
+   max_value: double precision
+}
+class sensors {
+   time: timestamp
+   host: text
+   topic: text
+   value: double precision
+}
+
+@enduml
